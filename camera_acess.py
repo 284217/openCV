@@ -18,8 +18,11 @@ while True:
         print("Error: Failed to capture frame.")
         break
 
+    #Flip the frame in horizontaly to mirror effect
+    flipped_frame =cv2.flip(frame, 1) #1 for horizontal fli, 0 for vertical flip, -1 both horizontal and vertical flip
+
     # Display the frame in a window
-    cv2.imshow('Webcam Feed', frame)
+    cv2.imshow('Webcam Feed', flipped_frame)
 
     # Break the loop if 'q' is pressed
     if cv2.waitKey(1) & 0xFF == ord('x'):
