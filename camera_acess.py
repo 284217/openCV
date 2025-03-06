@@ -22,7 +22,7 @@ while True:
     cv2.imshow('Webcam Feed', frame)
 
     # Break the loop if 'q' is pressed
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('x'):
         break
 
 # Release the camera and close all OpenCV windows
