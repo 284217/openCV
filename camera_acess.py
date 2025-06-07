@@ -36,9 +36,22 @@ while True:
     #Flip the frame in horizontaly to mirror effect
     flipped_frame =cv2.flip(frame, 1) #1 for horizontal fli, 0 for vertical flip, -1 both horizontal and vertical flip
 
+
+    #get current window size
+    #window_size = cv2.getWindowImageRect('Webcam Feed')
+    #resize the frame to fit the window size
+    #resized_frame = cv2.resize(flipped_frame, (window_size[2], window_size[3]))
+
+    # Get current window size
+    _, _, win_w, win_h = cv2.getWindowImageRect('Webcam Feed')
+    # Resize frame to fit the window
+    resized_frame = cv2.resize(flipped_frame, (win_w, win_h))
+
+
     # Display the frame in a window
     cv2.imshow('Webcam Feed', flipped_frame)
 
+    
     # Break the loop if 'q' is pressed
     if cv2.waitKey(1) & 0xFF == ord('x'):
         break
