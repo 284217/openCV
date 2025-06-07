@@ -3,10 +3,22 @@ import cv2
 # Open the default camera (usually the built-in webcam)
 cap = cv2.VideoCapture(0)
 
+#Set Resolutioin
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)  # Set width to 1280 pixels
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)  # Set height to 720 pixels
+cap.set(cv2.CAP_PROP_FPS, 30)  # Set frames per second to 30
+
+
 # Check if the camera was opened successfully
 if not cap.isOpened():
     print("Error: Could not open webcam.")
     exit()
+
+#Print actual resolution
+width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+fps = int(cap.get(cv2.CAP_PROP_FPS))
+print(f"Webcam resolution set to: {width}x{height} @ {fps} FPS")
 
 # Loop to continuously capture frames from the webcam
 while True:
